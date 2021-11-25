@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRChat.API.Client", "VRChat.API.Client\VRChat.API.Client.csproj", "{6B46C031-6F2B-4D61-8F94-DA9B9D606951}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
