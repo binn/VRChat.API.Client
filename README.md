@@ -52,6 +52,8 @@ Console.WriteLine(id.ToString());
 
 This library provides Fluent APIs for DI in your .NET services, here's some example usage to get you started.
 
+A detailed sample application is available in the [VRChat.API.UnitSample.AspNetCore](VRChat.API.UnitSample.AspNetCore) folder.
+
 ```csharp
 public void ConfigureService(IServiceCollection services)
 {
@@ -80,6 +82,24 @@ public class UsersController : ControllerBase
        var user = await vrchat.Users.GetUserAsync(id);
        return Ok(new { user.Username });
    }
+}
+```
+
+```csharp
+// When using named clients, you'll need to use IVRChatClientFactory
+public class UsersController : ControllerBase
+{
+    private readonly IVRChat _vrchat;
+
+    public UsersController(IVRChatClientFactory factory) =>
+        _vrchat = factory.CreateClient("WorldsClient");
+
+    [Route("/worlds/{id}")] 
+    public async Task<IActionResult> GetWorldAsync(string id)
+    {
+       var world = await vrchat.Worlds.GetWorldAsync(id);
+       return Ok(new { world.Name });
+    }
 }
 ```
 
