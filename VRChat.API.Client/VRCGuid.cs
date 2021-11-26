@@ -3,18 +3,18 @@
 namespace VRChat
 {
     /// <summary>
-    /// The <see cref="VRCGuid"/> struct represents a <see cref="Guid"/> tied in with an underlying <see cref="VRCGuidType"/> <br />
+    /// The <see cref="VRCGuid"/> struct represents a <see cref="Guid"/> tied in with an underlying <see cref="VRCKind"/> <br />
     /// which may represent a <c>file</c>, <c>avatar</c>, <c>world</c>, or <c>user</c>.
     /// <br />This is a struct used to validate and .NET-ify VRChat's IDs.
     /// </summary>
     public struct VRCGuid
     {
-        private readonly VRCGuidType _type;
+        private readonly VRCKind _kind;
         private readonly Guid _guid;
 
-        private VRCGuid(VRCGuidType type, Guid id)
+        private VRCGuid(VRCKind kind, Guid id)
         {
-            this._type = type;
+            this._kind = kind;
             this._guid = id;
         }
 
@@ -24,14 +24,14 @@ namespace VRChat
         public Guid Guid => _guid;
 
         /// <summary>
-        /// The underlying <see cref="VRCGuidType"/> that this <see cref="VRCGuid"/> represents.
+        /// The underlying <see cref="VRCKind"/> that this <see cref="VRCGuid"/> represents.
         /// </summary>
-        public VRCGuidType Type => _type;
+        public VRCKind Kind => _kind;
 
         /// <summary>
         /// A default <see cref="VRCGuid"/> that is empty with "file" as it's type. Keep in mind VRCGuid's can not be null.
         /// </summary>
-        public static VRCGuid Empty => VRCGuid.Create(VRCGuidType.File, Guid.Empty);
+        public static VRCGuid Empty => VRCGuid.Create(VRCKind.File, Guid.Empty);
 
         /// <summary>
         /// Formats the current <see cref="VRCGuid"/> as a string with the <c>[type]_[guid]</c> format standard for VRChat.
@@ -40,7 +40,7 @@ namespace VRChat
         public override string ToString()
         {
             return string.Concat( // Maybe there is a faster implementation?
-                    _type.AsVRChatDescriptor(),
+                    _kind.AsVRChatDescriptor(),
                     "_",
                     _guid.ToString()
                 );
@@ -49,19 +49,19 @@ namespace VRChat
         /// <summary>
         /// Creates a <see cref="VRCGuid"/> with the specified parameters
         /// </summary>
-        /// <param name="type">The <see cref="VRCGuidType"/> type of <see cref="VRCGuid"/> to create.</param>
+        /// <param name="kind">The kind of <see cref="VRCGuid"/> to create.</param>
         /// <param name="underlyingId">The <see cref="Guid"/> of the <see cref="VRCGuid"/> to create.</param>
         /// <returns>A new <see cref="VRCGuid"/>.</returns>
-        public static VRCGuid Create(VRCGuidType type, Guid underlyingId) =>
-            new VRCGuid(type, underlyingId);
+        public static VRCGuid Create(VRCKind kind, Guid underlyingId) =>
+            new VRCGuid(kind, underlyingId);
 
         /// <summary>
-        /// Creates a new <see cref="VRCGuid"/> randomly, with the specified <see cref="VRCGuidType"/>, otherwise <c>VRCGuidType.File</c>
+        /// Creates a new <see cref="VRCGuid"/> randomly, with the specified <see cref="VRCKind"/>, otherwise <c>VRCGuidType.File</c>
         /// </summary>
-        /// <param name="type">The <see cref="VRCGuidType"/> type of <see cref="VRCGuid"/> to create.</param>
+        /// <param name="type">The kind of <see cref="VRCGuid"/> to create.</param>
         /// <returns>A new <see cref="VRCGuid"/>.</returns>
-        public static VRCGuid NewGuid(VRCGuidType type = VRCGuidType.File) =>
-            VRCGuid.Create(type, Guid.NewGuid());
+        public static VRCGuid NewGuid(VRCKind kind = VRCKind.File) =>
+            VRCGuid.Create(kind, Guid.NewGuid());
 
         /// <summary>
         /// Tries to parse a <see cref="VRCGuid"/> from the input string provided, and returns a <see cref="bool"/> representing the status of the operation.
@@ -77,13 +77,13 @@ namespace VRChat
             if (parts.Length != 2)
                 return false;
 
-            if (!VRCGuidTypeEnum.TryParse(parts[0], out VRCGuidType type)) // There could be a better implementation of this in the future
+            if (!VRCKindEnum.TryParse(parts[0], out VRCKind kind)) // There could be a better implementation of this in the future
                 return false;
 
             if (!Guid.TryParse(parts[1], out Guid id))
                 return false;
 
-            vrcid = VRCGuid.Create(type, id);
+            vrcid = VRCGuid.Create(kind, id);
             return true;
         }
 

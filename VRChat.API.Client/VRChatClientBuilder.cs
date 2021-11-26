@@ -15,7 +15,7 @@ namespace VRChat.API.Client
         public VRChatClientBuilder() : this(null) { }
 
         /// <summary>
-        /// Initializes a <see cref="VRChatClientBuilder"/> from a <see cref="VRChat.API.Client.Configuration"/> (if any)
+        /// Initializes a <see cref="VRChatClientBuilder"/> from a <see cref="global::VRChat.API.Client.Configuration"/> (if any)
         /// <br /> <b style="color: red">Note: <em>This should not be used unless you know what you're doing</em></b>
         /// </summary>
         /// <param name="incomingConfiguration">The <see cref="Configuration"/> to initialize with as a base</param>
@@ -26,8 +26,13 @@ namespace VRChat.API.Client
                 this.WithUserAgent(_defaultUserAgent);
         }
 
+        public void WithCredentials(object username, object password)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
-        /// Creates a <see cref="VRChatClientBuilder"/> from a <see cref="VRChat.API.Client.Configuration"/>
+        /// Creates a <see cref="VRChatClientBuilder"/> from a <see cref="Configuration"/>
         /// <br /> <b style="color: red">Note: <em>This should not be used unless you know what you're doing</em></b>
         /// </summary>
         /// <param name="incomingConfiguration">The <see cref="Configuration"/> to initialize with as a base</param>
@@ -160,7 +165,7 @@ namespace VRChat.API.Client
         /// <param name="useWithoutCredentials"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public IVRChatClient Build(bool useWithoutCredentials = true)
+        public IVRChat Build(bool useWithoutCredentials = true)
         {
             if(!useWithoutCredentials)
             {
@@ -171,7 +176,7 @@ namespace VRChat.API.Client
                 }
             }
 
-            return VRChatClient.CreateInternal(_configuration);
+            return VRChat.CreateInternal(_configuration);
         }
     }
 }

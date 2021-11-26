@@ -4,7 +4,7 @@ namespace VRChat.API.Extensions.Hosting
 {
     public interface IVRChatClientFactory
     {
-        IVRChatClient CreateClient();
-        IVRChatClient CreateClient(string name);
+        IVRChat CreateClient();
+        IVRChat CreateClient(string name);
     }
 }

@@ -10,12 +10,12 @@ namespace VRChat.API.Extensions.Hosting
     {
         private readonly IDictionary<string, VRChatClientBuilder> _builders;
 
-        private DefaultVRChatClientFactory() =>
+        public DefaultVRChatClientFactory() =>
             _builders = new Dictionary<string, VRChatClientBuilder>();
 
         internal bool IsDefaultRegistered => _builders.ContainsKey("vrc_default"); // Not sure where I was going with this, but I'll keep it in here for now
 
-        public IVRChatClient CreateClient() // Maybe we should throw an exception if the default was not registered? 
+        public IVRChat CreateClient() // Maybe we should throw an exception if the default was not registered? 
             // It'll ensure that users of the library don't end up accidentally using a client that isn't registered (inconsistent library design)
         {
             if (!_builders.TryGetValue("vrc_default", out VRChatClientBuilder vcb))
@@ -31,7 +31,7 @@ namespace VRChat.API.Extensions.Hosting
             return vcb.Build();
         }
 
-        public IVRChatClient CreateClient(string name)
+        public IVRChat CreateClient(string name)
         {
             if (_builders.ContainsKey(name))
                 return _builders[name].Build();

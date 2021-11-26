@@ -1,6 +1,6 @@
 ﻿namespace VRChat
 {
-    public enum VRCGuidType
+    public enum VRCKind
     {
         File,
         User,
@@ -8,46 +8,46 @@
         Avatar
     }
 
-    public static class VRCGuidTypeEnum
+    public static class VRCKindEnum
     {
         /// <summary>
-        /// Formats the <see cref="VRCGuidType"/> to it's respective VRChat descriptor.
+        /// Formats the <see cref="VRCKind"/> to it's respective VRChat descriptor.
         /// </summary>
-        /// <param name="type">The <see cref="VRCGuidType"/> to format</param>
+        /// <param name="type">The <see cref="VRCKind"/> to format</param>
         /// <returns>The string representation of the incoming type, otherwise "file".</returns>
-        public static string AsVRChatDescriptor(this VRCGuidType type)
+        public static string AsVRChatDescriptor(this VRCKind type)
         {
             switch (type)
             {
-                case VRCGuidType.Avatar:
+                case VRCKind.Avatar:
                     return "avtr";
-                case VRCGuidType.World:
+                case VRCKind.World:
                     return "wrld";
-                case VRCGuidType.User:
+                case VRCKind.User:
                     return "usr";
-                case VRCGuidType.File:
+                case VRCKind.File:
                 default:
                     return "file";
             }
         }
         
         // Maybe make this public?
-        internal static bool TryParse(string input, out VRCGuidType type)
+        internal static bool TryParse(string input, out VRCKind type)
         {
-            VRCGuidType? attempt = null;
+            VRCKind? attempt = null;
             switch (input)
             {
                 case "avtr":
-                    attempt = VRCGuidType.Avatar;
+                    attempt = VRCKind.Avatar;
                     break;
                 case "wrld":
-                    attempt = VRCGuidType.World;
+                    attempt = VRCKind.World;
                     break;
                 case "usr":
-                    attempt = VRCGuidType.User;
+                    attempt = VRCKind.User;
                     break;
                 case "file":
-                    attempt = VRCGuidType.File;
+                    attempt = VRCKind.File;
                     break;
             }
 

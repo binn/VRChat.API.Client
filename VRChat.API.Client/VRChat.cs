@@ -5,7 +5,7 @@ using VRChat.API.Model;
 
 namespace VRChat.API.Client
 {
-    public interface IVRChatClient
+    public interface IVRChat
     {
         /// <summary>
         /// <b>The Files API for VRChat.</b> <br />
@@ -111,7 +111,7 @@ namespace VRChat.API.Client
         /// <summary>
         /// Will be <c>true</c> if the current client is successfully logged in as a user.
         /// <br /> Otherwise, this will return <c>false</c>.
-        /// <br /> <em>This property automatically updates when calling <see cref="IVRChatClient.TryLoginAsync(CancellationToken)"/> or <see cref="IVRChatClient.LoginAsync(bool, CancellationToken)"/></em>
+        /// <br /> <em>This property automatically updates when calling <see cref="IVRChat.TryLoginAsync(CancellationToken)"/> or <see cref="IVRChat.LoginAsync(bool, CancellationToken)"/></em>
         /// </summary>
         bool IsLoggedIn { get; }
 
@@ -132,9 +132,9 @@ namespace VRChat.API.Client
         Task<CurrentUser> LoginAsync(bool throwOnFail = false, CancellationToken ct = default);
     }
 
-    public class VRChatClient : IVRChatClient
+    public class VRChat : IVRChat
     {
-        private VRChatClient(Configuration configuration)
+        private VRChat(Configuration configuration)
         {
             _files = new FilesApi(configuration);
             _users = new UsersApi(configuration);
@@ -185,8 +185,8 @@ namespace VRChat.API.Client
         public bool IsLoggedIn { get; private set; }
 
         // Creates a new VRChatClient internally, compatible with IVRChatClient
-        internal static VRChatClient CreateInternal(Configuration configuration) =>
-            new VRChatClient(configuration);
+        internal static VRChat CreateInternal(Configuration configuration) =>
+            new VRChat(configuration);
 
         public async Task<bool> TryLoginAsync(CancellationToken ct = default)
         {
