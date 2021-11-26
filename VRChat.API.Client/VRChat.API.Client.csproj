@@ -11,11 +11,18 @@
     <RepositoryUrl>https://github.com/binn/VRChat.API.Client</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>vrchat,vrcapi,microsoft.extensions.hosting,aspnetcore,servicecollection,vrc-api,vrc</PackageTags>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest</AnalysisLevel>
+	<VersionPrefix>1.1.0</VersionPrefix>
+    <Authors>binn</Authors>
+    <Company>Kibii LLC</Company>
+    <PackageIcon>vrc_cat.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -25,6 +32,21 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <FileAlignment>1024</FileAlignment>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="vrc_cat.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\vrc_cat.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="VRChat.API" Version="1.6.3" />
