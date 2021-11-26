@@ -1,5 +1,7 @@
-﻿namespace VRChat.API.Extensions.Hosting;
-public class Class1
+﻿namespace VRChat.API.Extensions.Hosting
 {
+    public class Class1
+    {
 
+    }
 }

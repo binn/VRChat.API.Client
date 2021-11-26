@@ -1,22 +1,43 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRChat.API.Client", "VRChat.API.Client\VRChat.API.Client.csproj", "{6B46C031-6F2B-4D61-8F94-DA9B9D606951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VRChat.API.Client", "VRChat.API.Client\VRChat.API.Client.csproj", "{6B46C031-6F2B-4D61-8F94-DA9B9D606951}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VRChat.API.Extensions.Hosting", "VRChat.API.Extensions.Hosting\VRChat.API.Extensions.Hosting.csproj", "{F3F23C23-713C-4233-87B6-D4EE8A19DB47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRChat.API.Client.Tests", "VRChat.API.Client.Tests\VRChat.API.Client.Tests.csproj", "{678707CF-EC80-42A0-937D-E9AFB1BC8BD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRChat.API.UnitSample", "VRChat.API.UnitSample\VRChat.API.UnitSample.csproj", "{124EE6F3-989C-484A-8441-5DE854138638}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B46C031-6F2B-4D61-8F94-DA9B9D606951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F23C23-713C-4233-87B6-D4EE8A19DB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3F23C23-713C-4233-87B6-D4EE8A19DB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3F23C23-713C-4233-87B6-D4EE8A19DB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F23C23-713C-4233-87B6-D4EE8A19DB47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678707CF-EC80-42A0-937D-E9AFB1BC8BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678707CF-EC80-42A0-937D-E9AFB1BC8BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678707CF-EC80-42A0-937D-E9AFB1BC8BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678707CF-EC80-42A0-937D-E9AFB1BC8BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124EE6F3-989C-484A-8441-5DE854138638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124EE6F3-989C-484A-8441-5DE854138638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124EE6F3-989C-484A-8441-5DE854138638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124EE6F3-989C-484A-8441-5DE854138638}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B245B94B-9274-49E4-8A78-A7F3A91AA0C8}
 	EndGlobalSection
 EndGlobal
