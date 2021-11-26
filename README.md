@@ -85,6 +85,8 @@ public class UsersController : ControllerBase
 }
 ```
 
+### Working with Named Clients
+
 ```csharp
 // When using named clients, you'll need to use IVRChatClientFactory
 public class UsersController : ControllerBase
