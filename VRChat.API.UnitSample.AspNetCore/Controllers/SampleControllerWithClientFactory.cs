@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Threading.Tasks;
 using VRChat.API.Client;
 using VRChat.API.Extensions.Hosting;
@@ -18,30 +19,27 @@ namespace VRChat.API.UnitSample.AspNetCore.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/{id}")]
-        public async Task<IActionResult> GetCurrentUserAsync(string userId)
+        [HttpGet("/worlds/trending")]
+        public async Task<IActionResult> GetTrendingWorldsAsync()
         {
-            if (!VRCGuid.TryParse(userId, out VRCGuid id))
-                return BadRequest(new { error = "VRChat user ID was not formatted correctly." });
-
-            if (id.Kind != VRCKind.User)
-                return BadRequest(new { error = "This endpoint can only fetch users!" });
-
-            var user = await _vrchat.Users.GetUserAsync(id.ToString());
-            _logger.LogInformation("IP address '{ip}' requested user: {userId}, {username}.",
+            var worlds = await _vrchat.Worlds.GetActiveWorldsAsync();
+            _logger.LogInformation("IP address '{ip}' requested trending worlds, {worldCount} was received.",
                     HttpContext.Connection.RemoteIpAddress.ToString(),
-                    id.ToString(),
-                    user.Username
+                    worlds.Count
                 );
 
-            return Ok(new
+            return Ok(worlds.Select(world => new 
             {
-                id,
-                user.Username,
-                user.DisplayName,
-                user.Bio,
-                user.CurrentAvatarImageUrl
-            });
+                world.Id,
+                world.Name,
+                world.Heat,
+                world.ImageUrl,
+                world.AuthorName,
+                world.AuthorId,
+                world.Capacity,
+                world.Favorites,
+                world.Occupants
+            }));
         }
     }
 }
