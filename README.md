@@ -89,6 +89,9 @@ public class UsersController : ControllerBase
 
 ```csharp
 // When using named clients, you'll need to use IVRChatClientFactory
+// This is always available regardless if you use named clients or not
+// Calling CreateClient without any arguments gives you the default IVRChat
+// & the implementation is extremely similar to IHttpClientFactory
 public class UsersController : ControllerBase
 {
     private readonly IVRChat _vrchat;
