@@ -1,4 +1,12 @@
-<img src="vrc_cat.png" width="200" />
+<center>
+    <img src="vrc_cat.png" width="150" /> <br />
+    <a href="https://www.nuget.org/packages/VRChat.API.Client">
+        <img src="https://img.shields.io/nuget/v/VRChat.API.Client.svg?style=flat-square" />
+    </a>
+    <a href="https://www.nuget.org/packages/VRChat.API.Extensions.Hosting">
+        <img src="https://img.shields.io/nuget/v/VRChat.API.Extensions.Hosting.svg?style=flat-square" />
+    </a>
+</center>
 
 # VRChat Fluent API
 
