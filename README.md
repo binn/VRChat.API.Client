@@ -120,7 +120,7 @@ Resources are referred to with a strong property type, `ContainerGroups` vs `Use
 
 # Where is the API reference for talking with VRChat?
 
-That library is a fluent wrapper around the VRChat.API library, which is a C# library maintained by @vrchatapi-csharp. Refer to their repository for the API reference.
+That library is a fluent wrapper around the VRChat.API library, which is a C# library maintained by @vrchatapi. Refer to their repository for the API reference.
 
 # Contribution
 
