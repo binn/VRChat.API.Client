@@ -1,3 +1,5 @@
+<img src="vrc_cat.png" width="200" />
+
 # VRChat Fluent API
 
 This is a fluent library wrapping the [VRChat.API](https://github.com/vrchatapi/vrchatapi-csharp) library. Designed around Microsoft's Fluent standard, providing a similar experience towards Azure SDKs.
@@ -10,9 +12,24 @@ This library provides Fluent APIs around the VRChat.API clients, specifically ex
 
 **View samples in the `VRChat.API.UnitSample` and `VRChat.API.UnitSample.AspNetCore` folders**
 
+## NuGet Packages
+
+**Fluent API for .NET**, base library
+
+- VRChat.API.Client [![NuGet version (VRChat.API.Client)](https://img.shields.io/nuget/v/VRChat.API.Client.svg?style=flat-square)](https://www.nuget.org/packages/VRChat.API.Client/)
+
+**Dependency Injection for ASP.NET / .NET Services**
+
+- VRChat.API.Extensions.Hosting [![NuGet version (VRChat.API.Extensions.Hosting)](https://img.shields.io/nuget/v/VRChat.API.Extensions.Hosting.svg?style=flat-square)](https://www.nuget.org/packages/VRChat.API.Extensions.Hosting/)
+
+
 ## Usage
 
+Make sure to have the [VRChat.API.Client](https://www.nuget.org/packages/VRChat.API.Client/) package installed from NuGet.
+
 ```csharp
+using VRChat.API.Client;
+
 IVRChat vrchat = new VRChatClientBuilder() // You can store this builder and use it to re-create new clients whenever
     .WithUsername("username") // .WithCredentials(username, password) can also work
     .WithPassword("password")
@@ -28,6 +45,8 @@ Console.WriteLine("Logged in as {0}", user.Username);
 ```
 
 ```csharp
+using VRChat; // VRCGuid is located in the VRChat namespace
+
 // VRCGuid usage
 string input = Console.ReadLine(); // usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469
 
@@ -54,7 +73,11 @@ This library provides Fluent APIs for DI in your .NET services, here's some exam
 
 A detailed sample application is available in the [VRChat.API.UnitSample.AspNetCore](VRChat.API.UnitSample.AspNetCore) folder.
 
+Make sure to have the [VRChat.API.Extensions.Hosting](https://www.nuget.org/packages/VRChat.API.Extensions.Hosting/) package installed from NuGet.
+
 ```csharp
+using VRChat.API.Extensions.Hosting;
+
 public void ConfigureService(IServiceCollection services)
 {
     services.AddVRChat(); // by default, it uses the VRCHAT_USERNAME and VRCHAT_PASSWORD environment variable
@@ -73,6 +96,8 @@ public void Configure(IVRChatClientFactory factory)
 ```
 
 ```csharp
+using VRChat.API.Extensions.Hosting;
+
 // Consume like so
 public class UsersController : ControllerBase
 {
@@ -88,6 +113,8 @@ public class UsersController : ControllerBase
 ### Working with Named Clients
 
 ```csharp
+using VRChat.API.Extensions.Hosting;
+
 // When using named clients, you'll need to use IVRChatClientFactory
 // This is always available regardless if you use named clients or not
 // Calling CreateClient without any arguments gives you the default IVRChat
