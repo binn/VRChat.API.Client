@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using VRChat.API.Api;
 using VRChat.API.Model;
@@ -186,6 +184,7 @@ namespace VRChat.API.Client
 
         public bool IsLoggedIn { get; private set; }
 
+        // Creates a new VRChatClient internally, compatible with IVRChatClient
         internal static VRChatClient CreateInternal(Configuration configuration) =>
             new VRChatClient(configuration);
 

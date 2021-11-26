@@ -5,7 +5,7 @@ namespace VRChat
     /// <summary>
     /// The <see cref="VRCGuid"/> struct represents a <see cref="Guid"/> tied in with an underlying <see cref="VRCGuidType"/> <br />
     /// which may represent a <c>file</c>, <c>avatar</c>, <c>world</c>, or <c>user</c>.
-    /// <br />This is a helper class used to validate and .NET-ify VRChat's IDs.
+    /// <br />This is a struct used to validate and .NET-ify VRChat's IDs.
     /// </summary>
     public struct VRCGuid
     {

@@ -6,7 +6,7 @@ namespace VRChat.API.UnitSample
     {
         public static async Task Main(string[] args)
         {
-            var client = new VRChatConnectionBuilder()
+            var client = new VRChatClientBuilder()
                 .WithUsername("dot bin")
                 .WithPassword("[redacted]")
                 .WithTimeout(TimeSpan.FromSeconds(1))
