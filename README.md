@@ -103,10 +103,24 @@ public class UsersController : ControllerBase
     public async Task<IActionResult> GetWorldAsync(string id)
     {
        var world = await vrchat.Worlds.GetWorldAsync(id);
-       return Ok(new { world.Name });
+       return Ok(new { world.Name }); // {"name": "world_name"}
     }
 }
 ```
+
+# How is this similar to the Azure SDK?
+
+In the Azure SDK, once an `IAzure` is configured, you can access Azure resources via the properties. 
+
+For example, to list Container Groups: `_azure.ContainerGroups.ListByResourceGroupAsync("eus-rg")`
+
+In this library, similar fluent properties exist, e.g. `_vrchat.Users.GetUserAsync("userId")`
+
+Resources are referred to with a strong property type, `ContainerGroups` vs `Users` or, `NetworkInterfaces` vs `Moderations`
+
+# Where is the API reference for talking with VRChat?
+
+That library is a fluent wrapper around the VRChat.API library, which is a C# library maintained by @vrchatapi-csharp. Refer to their repository for the API reference.
 
 # Contribution
 
