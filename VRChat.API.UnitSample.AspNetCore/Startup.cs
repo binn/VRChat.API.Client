@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.VisualBasic;
 using VRChat.API.Extensions.Hosting;
 
 namespace VRChat.API.UnitSample.AspNetCore
@@ -24,7 +25,7 @@ namespace VRChat.API.UnitSample.AspNetCore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IVRChatClientFactory factory)
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
@@ -36,6 +37,8 @@ namespace VRChat.API.UnitSample.AspNetCore
             {
                 endpoints.MapControllers();
             });
+
+            factory.AttemptLoginForAllClients().Wait(); // This will try to login all the VRChat clients
         }
     }
 }

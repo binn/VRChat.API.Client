@@ -14,7 +14,6 @@ namespace VRChat.API.UnitSample
             var client = new VRChatClientBuilder()
                 .WithUsername(username)
                 .WithPassword(password)
-                .WithTimeout(TimeSpan.FromSeconds(10))
                 .Build();
 
             var user = await client.Authentication.GetCurrentUserAsync();

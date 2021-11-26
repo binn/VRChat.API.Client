@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using VRChat.API.Client;
 
 namespace VRChat.API.Extensions.Hosting
@@ -14,6 +15,16 @@ namespace VRChat.API.Extensions.Hosting
             _builders = new Dictionary<string, VRChatClientBuilder>();
 
         internal bool IsDefaultRegistered => _builders.ContainsKey("vrc_default"); // Not sure where I was going with this, but I'll keep it in here for now
+
+        public async Task AttemptLoginForAllClients()
+        {
+            foreach(var client in _builders.Keys)
+                await this.LoginClientAsync(client);
+        }
+
+        public Task LoginClientAsync(string name = "vrc_default") =>
+            this.CreateClient(name).TryLoginAsync(); // There may be a fatal flaw and we should probably start storing actual IVRChat instances to 
+        // prevent logins and authtokens from being cleared out by the GC or if it's even being stored in the first place. Only one real way to find out.
 
         public IVRChat CreateClient() // Maybe we should throw an exception if the default was not registered? 
             // It'll ensure that users of the library don't end up accidentally using a client that isn't registered (inconsistent library design)

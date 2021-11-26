@@ -1,4 +1,5 @@
-﻿using VRChat.API.Client;
+﻿using System.Threading.Tasks;
+using VRChat.API.Client;
 
 namespace VRChat.API.Extensions.Hosting
 {
@@ -6,5 +7,8 @@ namespace VRChat.API.Extensions.Hosting
     {
         IVRChat CreateClient();
         IVRChat CreateClient(string name);
+
+        Task AttemptLoginForAllClients();
+        Task LoginClientAsync(string name = "vrc_default");
     }
 }

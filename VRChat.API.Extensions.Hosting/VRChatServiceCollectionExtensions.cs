@@ -69,7 +69,7 @@ namespace VRChat.API.Extensions.Hosting // Maybe we should change the namespace 
                 TryFillVRChatFromEnv(ref vcb); // If they don't specify a config action, we'll just use env vars to try and set it up
 
             services.TryAddSingleton<DefaultVRChatClientFactory>();
-            services.TryAddSingleton<IVRChatClientFactory>(srv =>
+            services.AddSingleton<IVRChatClientFactory>(srv => // Had to change to AddSingleton to make it call multiple times
             {
                 IVRChat client = vcb.Build();
                 var factory = srv.GetRequiredService<DefaultVRChatClientFactory>();

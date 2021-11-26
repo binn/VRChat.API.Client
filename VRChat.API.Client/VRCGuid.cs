@@ -71,6 +71,9 @@ namespace VRChat
         /// <returns>A <see cref="bool"/> value representing the success of the operation</returns>
         public static bool TryParse(string incoming, out VRCGuid vrcid)
         {
+            if(incoming == null)
+                throw new ArgumentNullException(nameof(incoming));
+
             vrcid = VRCGuid.Empty;
             string[] parts = incoming.Split('_');
 

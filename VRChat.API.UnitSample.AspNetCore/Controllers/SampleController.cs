@@ -17,7 +17,7 @@ namespace VRChat.API.UnitSample.AspNetCore.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("/{userId}")]
         public async Task<IActionResult> GetCurrentUserAsync(string userId)
         {
             if (!VRCGuid.TryParse(userId, out VRCGuid id))
