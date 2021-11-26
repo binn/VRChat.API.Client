@@ -5,6 +5,9 @@ using VRChat.API.Model;
 
 namespace VRChat.API.Client
 {
+    /// <summary>
+    /// A generic interface for communicating against VRChat's API.
+    /// </summary>
     public interface IVRChat
     {
         /// <summary>
@@ -84,7 +87,7 @@ namespace VRChat.API.Client
 
         /// <summary>
         /// <b>The Permissions API for VRChat.</b> <br />
-        /// The Permissions API provides access to querying permissions & assigned permissions on VRChat
+        /// The Permissions API provides access to querying permissions &amp; assigned permissions on VRChat
         /// <br /> This API is used for managing VRChat+ related permissions (inferred).
         /// </summary>
         PermissionsApi Permissions { get; }
@@ -132,7 +135,7 @@ namespace VRChat.API.Client
         Task<CurrentUser> LoginAsync(bool throwOnFail = false, CancellationToken ct = default);
     }
 
-    public class VRChat : IVRChat
+    internal class VRChat : IVRChat
     {
         private VRChat(Configuration configuration)
         {

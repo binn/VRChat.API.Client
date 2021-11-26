@@ -6,13 +6,16 @@ using VRChat.API.Client;
 
 namespace VRChat.API.Extensions.Hosting // Maybe we should change the namespace to Microsoft.Extensions.DependencyInjection ?
 {
+    /// <summary>
+    /// Extensions against <see cref="IServiceCollection"/> for fluent addition of <see cref="IVRChat"/> clients to .NET applications.
+    /// </summary>
     public static class VRChatServiceCollectionExtensions
     {
-        // We don't specify the <returns> or <param> for IServiceCollection because it is inferred that the user knows what they're doing
 
         /// <summary>
         /// Registers an <see cref="IVRChat"/> to the service collection as the default <see cref="IVRChat"/>, using an <see cref="IConfigurationSection"/> to configure.
         /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add this <see cref="IVRChat"/> to.</param>
         /// <param name="section">A configuration section used to configure the <see cref="IVRChat"/> with.</param>
         public static IServiceCollection AddVRChat(this IServiceCollection services, IConfigurationSection section) =>
             AddVRChat(services, "vrc_default", section);
@@ -21,6 +24,8 @@ namespace VRChat.API.Extensions.Hosting // Maybe we should change the namespace 
         /// Registers a named <see cref="IVRChat"/> to the service collection, using an <see cref="IConfigurationSection"/> to configure.
         /// <br /> <b>Note, you will need to use <see cref="IVRChatClientFactory"/> to consume named <see cref="IVRChat"/> clients.</b>
         /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add this <see cref="IVRChat"/> to.</param>
+        /// <param name="clientName">The name used to refer to this <see cref="IVRChat"/> with.</param>
         /// <param name="section">A configuration section used to configure the <see cref="IVRChat"/> with.</param>
         public static IServiceCollection AddVRChat(this IServiceCollection services, string clientName, IConfigurationSection section)
         {
@@ -43,6 +48,7 @@ namespace VRChat.API.Extensions.Hosting // Maybe we should change the namespace 
         /// <summary>
         /// Registers an <see cref="IVRChat"/> to the service collection as the default <see cref="IVRChat"/>.
         /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add this <see cref="IVRChat"/> to.</param>
         /// <param name="builder">A configuration action to configure the <see cref="IVRChat"/> with.</param>
         public static IServiceCollection AddVRChat(this IServiceCollection services, Action<VRChatClientBuilder> builder = null) =>
             AddVRChat(services, "vrc_default", builder); // Implement a factory pattern in the future
@@ -51,6 +57,7 @@ namespace VRChat.API.Extensions.Hosting // Maybe we should change the namespace 
         /// Registers a named <see cref="IVRChat"/> to the service collection.
         /// <br /> <b>Note, you will need to use <see cref="IVRChatClientFactory"/> to consume named <see cref="IVRChat"/> clients.</b>
         /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add this <see cref="IVRChat"/> to.</param>
         /// <param name="clientName">The name used to refer to this <see cref="IVRChat"/> with.</param>
         /// <param name="builder">A configuration action to configure the <see cref="IVRChat"/> with.</param>
         public static IServiceCollection AddVRChat(this IServiceCollection services, string clientName, Action<VRChatClientBuilder> builder = null)

@@ -1,11 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <SignAssembly>False</SignAssembly>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Description>Fluent interface API around VRChat.API, allowing for fluent usage of the library in enterprise-grade environments.</Description>
+	  <Copyright>(c) binn</Copyright>
+    <PackageProjectUrl>https://github.com/binn/VRChat.API.Client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/binn/VRChat.API.Client</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>vrchat,vrcapi,microsoft.extensions.hosting,aspnetcore,servicecollection,vrc-api,vrc</PackageTags>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <FileAlignment>1024</FileAlignment>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <FileAlignment>1024</FileAlignment>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="VRChat.API" Version="1.6.2" />
+    <PackageReference Include="VRChat.API" Version="1.6.3" />
   </ItemGroup>
 
 </Project>

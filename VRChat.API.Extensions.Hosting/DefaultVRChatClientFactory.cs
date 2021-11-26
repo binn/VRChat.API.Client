@@ -16,7 +16,7 @@ namespace VRChat.API.Extensions.Hosting
 
         internal bool IsDefaultRegistered => _builders.ContainsKey("vrc_default"); // Not sure where I was going with this, but I'll keep it in here for now
 
-        public async Task AttemptLoginForAllClients()
+        public async Task LoginAllClientsAsync()
         {
             foreach(var client in _builders.Keys)
                 await this.LoginClientAsync(client);

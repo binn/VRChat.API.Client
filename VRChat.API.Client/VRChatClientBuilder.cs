@@ -3,6 +3,10 @@ using System.Net;
 
 namespace VRChat.API.Client
 {
+    /// <summary>
+    /// The core of VRChat.API.Client. The VRChatClientBuilder class provides a Fluent API for building <see cref="IVRChat"/> clients, and smoothly
+    /// <b/> authentication against VRChat's API, with a rebuilding pipeline if ever needed.
+    /// </summary>
     public class VRChatClientBuilder
     {
         private const string _defaultUserAgent = "VRChat.API.Client/1.0 (.NET) netstandard2.0 (https://dot.net) VRChat.API/RestSharp";
@@ -24,11 +28,6 @@ namespace VRChat.API.Client
             _configuration = incomingConfiguration ?? new Configuration();
             if(_configuration.UserAgent == null)
                 this.WithUserAgent(_defaultUserAgent);
-        }
-
-        public void WithCredentials(object username, object password)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

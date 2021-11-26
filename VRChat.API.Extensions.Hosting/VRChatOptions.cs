@@ -1,5 +1,8 @@
 ﻿namespace VRChat.API.Extensions.Hosting
 {
+    /// <summary>
+    /// IConfiguration options binding class, can be consumed in publically shipped-APIs.
+    /// </summary>
     public class VRChatOptions
     {
         /// <summary>

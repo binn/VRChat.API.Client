@@ -58,7 +58,7 @@ namespace VRChat
         /// <summary>
         /// Creates a new <see cref="VRCGuid"/> randomly, with the specified <see cref="VRCKind"/>, otherwise <c>VRCGuidType.File</c>
         /// </summary>
-        /// <param name="type">The kind of <see cref="VRCGuid"/> to create.</param>
+        /// <param name="kind">The kind of <see cref="VRCGuid"/> to create.</param>
         /// <returns>A new <see cref="VRCGuid"/>.</returns>
         public static VRCGuid NewGuid(VRCKind kind = VRCKind.File) =>
             VRCGuid.Create(kind, Guid.NewGuid());

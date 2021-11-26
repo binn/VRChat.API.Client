@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.VisualBasic;
 using VRChat.API.Extensions.Hosting;
 
 namespace VRChat.API.UnitSample.AspNetCore
@@ -38,7 +37,7 @@ namespace VRChat.API.UnitSample.AspNetCore
                 endpoints.MapControllers();
             });
 
-            factory.AttemptLoginForAllClients().Wait(); // This will try to login all the VRChat clients
+            factory.LoginAllClientsAsync().Wait(); // This will try to login all the VRChat clients
         }
     }
 }

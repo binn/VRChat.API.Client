@@ -35,7 +35,7 @@ namespace VRChat.API.UnitSample.AspNetCore.Controllers
 
             return Ok(new
             {
-                id,
+                user.Id,
                 user.Username,
                 user.DisplayName,
                 user.Bio,

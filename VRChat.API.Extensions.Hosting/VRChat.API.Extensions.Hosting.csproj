@@ -1,8 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<SignAssembly>False</SignAssembly>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Description>.NET DI-ready fluent API built around VRChat.API.Client, for use in enterprise-grade .NET environments.</Description>
+		<Copyright>(c) binn</Copyright>
+		<PackageProjectUrl>https://github.com/binn/VRChat.API.Client</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/binn/VRChat.API.Client</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>vrchat,vrcapi,microsoft.extensions.hosting,aspnetcore,servicecollection,vrc-api,vrc</PackageTags>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<AnalysisLevel>latest</AnalysisLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<FileAlignment>1024</FileAlignment>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<FileAlignment>1024</FileAlignment>
+	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
