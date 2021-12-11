@@ -14,7 +14,7 @@
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest</AnalysisLevel>
-	<VersionPrefix>1.1.0</VersionPrefix>
+	<VersionPrefix>1.1.1</VersionPrefix>
     <Authors>binn</Authors>
     <Company>Kibii LLC</Company>
     <PackageIcon>vrc_cat.png</PackageIcon>
@@ -23,6 +23,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
+    <AssemblyVersion></AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -49,7 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="VRChat.API" Version="1.6.3" />
+    <PackageReference Include="VRChat.API" Version="1.6.4-rc1" />
   </ItemGroup>
 
 </Project>
